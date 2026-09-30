@@ -1,0 +1,126 @@
+{
+  "name": "Random Forest",
+  "version": "1.0.0",
+  "dataset": "Seeded synthetic network flows",
+  "training_samples": 2400,
+  "test_samples": 600,
+  "seed": 42,
+  "accuracy": 0.975,
+  "macro_f1": 0.9745198334599922,
+  "baseline_accuracy": 0.5533333333333333,
+  "baseline_macro_f1": 0.1781115879828326,
+  "labels": [
+    "benign",
+    "port_scan",
+    "brute_force",
+    "dos"
+  ],
+  "confusion_matrix": [
+    [
+      321,
+      1,
+      0,
+      10
+    ],
+    [
+      0,
+      92,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      84,
+      0
+    ],
+    [
+      4,
+      0,
+      0,
+      88
+    ]
+  ],
+  "per_class": [
+    {
+      "label": "benign",
+      "precision": 0.9876923076923076,
+      "recall": 0.9668674698795181,
+      "f1": 0.9771689497716894,
+      "support": 332
+    },
+    {
+      "label": "port_scan",
+      "precision": 0.989247311827957,
+      "recall": 1.0,
+      "f1": 0.9945945945945946,
+      "support": 92
+    },
+    {
+      "label": "brute_force",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 84
+    },
+    {
+      "label": "dos",
+      "precision": 0.8979591836734694,
+      "recall": 0.9565217391304348,
+      "f1": 0.9263157894736842,
+      "support": 92
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "failed_logins",
+      "importance": 0.2169632112334791
+    },
+    {
+      "feature": "packets",
+      "importance": 0.1808115991437264
+    },
+    {
+      "feature": "unique_dest_ports",
+      "importance": 0.16290329470206055
+    },
+    {
+      "feature": "syn_ratio",
+      "importance": 0.1136301274754234
+    },
+    {
+      "feature": "dst_port",
+      "importance": 0.11327064556478958
+    },
+    {
+      "feature": "bytes_transferred",
+      "importance": 0.0996418478215536
+    },
+    {
+      "feature": "duration_ms",
+      "importance": 0.08364720898324945
+    },
+    {
+      "feature": "protocol",
+      "importance": 0.023000168728985977
+    },
+    {
+      "feature": "src_port",
+      "importance": 0.006131896346731898
+    }
+  ],
+  "limitations": [
+    "Evaluation uses a stratified held-out split from a synthetic generator, not captured traffic. High scores do not demonstrate real-world detection quality.",
+    "Demo samples use the same generator as training; familiar patterns and repeated seeds can make the demo look easier than deployment.",
+    "Risk is 100 \u00d7 (1 \u2212 P(benign)), not a calibrated probability of a real threat. Confidence is the model's largest class probability.",
+    "Explanations are one-feature reference sensitivities, not causal effects or additive SHAP values. Correlated features can hide or exaggerate effects.",
+    "Global importance is impurity-based and may favor continuous or high-cardinality features.",
+    "No packet capture, automated blocking, authentication, or production intrusion prevention is included. Analyze only authorized data."
+  ],
+  "environment": {
+    "python": "3.11.9",
+    "numpy": "2.2.6",
+    "scikit_learn": "1.6.1"
+  },
+  "method": "Stratified random 80/20 split, seed 42. Preprocessor and forest fit on training only. Benign reference statistics use training only. No hyperparameter search on the holdout."
+}

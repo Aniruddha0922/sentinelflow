@@ -1,0 +1,13 @@
+duration_ms,packets,bytes_transferred,src_port,dst_port,failed_logins,unique_dest_ports,syn_ratio,protocol,label
+180,14,6400,52000,443,0,1,0.1,TCP,benign
+42,4,280,53120,53,0,1,0,UDP,benign
+1000,8,512,0,0,0,1,0,ICMP,benign
+350,140,8400,49152,22,0,120,0.94,TCP,port_scan
+800,260,15600,53001,8080,0,220,0.89,TCP,port_scan
+1200,90,7200,45000,53,0,75,0,UDP,port_scan
+120000,180,24000,51300,22,42,1,0.18,TCP,brute_force
+85000,240,40000,51400,3389,65,2,0.22,TCP,brute_force
+240000,420,76000,51500,21,110,1,0.15,TCP,brute_force
+1000,180000,10800000,54000,80,0,1,0.98,TCP,dos
+500,250000,125000000,55000,53,0,1,0,UDP,dos
+2000,300000,19200000,0,0,0,1,0,ICMP,dos

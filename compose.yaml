@@ -1,0 +1,19 @@
+services:
+  sentinelflow:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      SENTINEL_DB_PATH: /data/sentinel.db
+      SENTINEL_CORS_ORIGINS: http://127.0.0.1:8000,http://localhost:8000
+    volumes:
+      - sentinel-data:/data
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: "no"
+
+volumes:
+  sentinel-data:

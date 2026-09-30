@@ -1,0 +1,49 @@
+# Local agent/workspace state
+.claude/
+__agent__/
+.omnirush/
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
+# JavaScript and generated builds
+node_modules/
+dist/
+build/
+coverage/
+browser-artifacts/
+.vite/
+*.tsbuildinfo
+
+# Runtime databases, local configuration, and secrets
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+.env
+.env.*
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local tooling and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
